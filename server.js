@@ -18,7 +18,7 @@ app.use(express.json());
 //Sets our server to use the public directory for static assets
 //we want the public to only see what's in the public directory
 // __dirname is the path the .js file resides in when it is executed
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, './app/public')));
 
 
 require('./app/routing/apiRoutes.js')(app);
