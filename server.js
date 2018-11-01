@@ -7,7 +7,9 @@ const path = require('path');
 const app = express();
 
 //Defines a PORT for the server to listen for requests
-const PORT = 8080;
+
+// const PORT = 8080;
+var PORT = process.env.PORT || 3000;
 
 //Sets up our server to parse our request body for usage
 //app.use allows us to use middleware
