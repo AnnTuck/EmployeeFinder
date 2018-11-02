@@ -10,7 +10,7 @@ module.exports = function (app) {
 
     });
 
-
+    //POST to the employee list
     app.post('/api/employees', function(req,res) {
         employeeList.push(req.body);
     })

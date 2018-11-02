@@ -12,8 +12,8 @@ $(function () {
 
         //Grab the form elements and fill the newSurveyEntry object
         //Fill question array with scores
-        var question = [$('#q1').val(), $('#q2').val(), $('#q3').val(), $('#q4').val(), $('#q5').val(), $('#q6').val(), $('#q7').val(), $('#q8').val(), $('#q9').val(), $('#q10').val()];
-
+        var question = [($('#q1').val()).slice(0,1), ($('#q2').val()).slice(0,1), ($('#q3').val()).slice(0,1), ($('#q4').val()).slice(0,1), ($('#q5').val()).slice(0,1), ($('#q6').val()).slice(0,1), ($('#q7').val()).slice(0,1), ($('#q8').val()).slice(0,1), ($('#q9').val()).slice(0,1), ($('#q10').val()).slice(0,1)];
+        // var question = [($('#q1').val()).slice(0,1), $('#q2').val(), $('#q3').val(), $('#q4').val(), $('#q5').val(), $('#q6').val(), $('#q7').val(), $('#q8').val(), $('#q9').val(), $('#q10').val()];
         const newSurveyEntry = {
             name: $('#formName').val().trim(),
             photo: $('#formPhoto').val().trim(),
@@ -86,27 +86,22 @@ $(function () {
                 console.log("matching name", data[matchIndex].name);
                 console.log("matching photo", data[matchIndex].photo);
 
-                // "https://upload.wikimedia.org/wikipedia/en/5/51/Fozzie_Bear.jpg"
+                
 
-                // const ceoHolder = $('<p>').text(`CEO: ${ceo}`);
+                
 
-                // <img id="modalPhoto" src="https://vignette.wikia.nocookie.net/muppet/images/0/0f/Animal-BlueBackground.jpg/revision/20150814012530" alt="Employee Photo" width="370"</img></img>
-                //     height="370">
-
-                // let modalPhotoHolder = $('<img>').attr("src","https://vignette.wikia.nocookie.net/muppet/images/0/0f/Animal-BlueBackground.jpg/revision/20150814012530");
-
-                // const logoHolder = $('<img>').attr("src", `${logo}`);
-
+               //Pass matching name and photo to modal and launch modal 
 
                 $('#modalName').text(data[matchIndex].name);
 
-                // let photoHolder = document.getElementById("modalPhoto");
-                // photoHolder.getAttributeNode("src").value = "https://upload.wikimedia.org/wikipedia/en/5/51/Fozzie_Bear.jpg";
+                //???Why doesn't this work??
+                // let modalPhotoHolder = $('<img>').attr("src","https://vignette.wikia.nocookie.net/muppet/images/0/0f/Animal-BlueBackground.jpg/revision/20150814012530");
                 // $('#modalPhoto').append(modalPhotoHolder);
-
-                // document.getElementById("modalPhoto").src = "https://vignette.wikia.nocookie.net/muppet/images/0/0f/Animal-BlueBackground.jpg/revision/20150814012530"
                 document.getElementById("modalPhoto").src = data[matchIndex].photo;
+                
+                $('#exampleModal').modal('toggle');
 
+                //Post the new survey data to the Employee list
                 postNewSurvey(newSurveyEntry);
             });
 

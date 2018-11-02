@@ -5,6 +5,11 @@ console.log("htmlRoutes");
 // Define an action to be performed when a GET request is made to the survey route
 //Shows the user the survey page.
         app.get('/', function (req, res){
+            res.sendFile(path.join(__dirname, '../public/home.html'));
+            // res.sendFile(path.join(__dirname, '../public/survey.html'));
+        })
+
+        app.get('/survey', function (req, res){
             res.sendFile(path.join(__dirname, '../public/survey.html'));
         })
 };
